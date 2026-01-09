@@ -1,0 +1,99 @@
+# CUDA Learning Plan - Computational Physics + Finance
+
+## Who I Am
+- Physics student (F1 visa)
+- Already built N-body simulations (Verlet integration)
+- Active trader, want to build tools for myself
+- Target: Computational physics / HPC roles (not saturated quant)
+
+## Goal
+Build GPU-accelerated Monte Carlo simulation engine for:
+- Market simulation
+- Option pricing  
+- Risk analysis
+- Strategy backtesting
+
+## Why This Project
+- Same math as physics (stochastic processes, statistical mechanics)
+- Useful for personal trading
+- Interview-ready for: NVIDIA, national labs, fintech, aerospace
+- Demonstrates: CUDA, numerical methods, domain knowledge
+
+## Hardware
+- NVIDIA RTX 5090
+- Windows
+
+## Learning Path
+
+### Phase 1: CUDA Foundations (Week 1-2)
+- GPU architecture (SMs, warps, memory hierarchy)
+- Thread/block/grid model
+- Memory types (global, shared, registers, constant)
+- Write basic kernels: vector ops, reductions
+
+### Phase 2: Monte Carlo on GPU (Week 3-4)
+- Random number generation on GPU (cuRAND)
+- Parallel Monte Carlo integration
+- Geometric Brownian Motion simulation
+- European option pricing
+
+### Phase 3: Advanced Finance (Week 5-6)
+- Correlated asset simulation (Cholesky decomposition on GPU)
+- Path-dependent options (Asian, barrier)
+- American options (Longstaff-Schwartz algorithm)
+- Greeks calculation via finite difference
+
+### Phase 4: Risk & Optimization (Week 7-8)
+- Portfolio VaR calculation
+- Expected shortfall
+- Covariance matrix computation
+- Strategy backtesting framework
+
+### Phase 5: Polish & Performance (Week 9-10)
+- Profiling with Nsight
+- Memory optimization
+- Multi-GPU support
+- Python bindings for easy use
+
+## Key Concepts to Master
+
+### CUDA Specific
+- Memory coalescing (why access patterns matter)
+- Occupancy (keeping GPU cores busy)
+- Bank conflicts in shared memory
+- Warp divergence (why branches hurt)
+- Streams and async execution
+
+### Finance/Math Specific
+- Geometric Brownian Motion: dS = μSdt + σSdW
+- Ito's lemma
+- Risk-neutral pricing
+- Cholesky decomposition for correlations
+- Variance reduction techniques
+
+## Setup Instructions (Windows + RTX 5090)
+
+1. Install CUDA Toolkit 12.x from NVIDIA
+2. Install Visual Studio 2022 (Community, with C++ workload)
+3. Verify: `nvcc --version` in terminal
+4. Install Python packages: `pip install cupy numba pycuda`
+
+## First Code to Write
+
+Start with this - Monte Carlo Pi estimation on GPU:
+- Simple enough to understand
+- Shows the parallel pattern
+- Same structure as option pricing
+
+Then immediately move to GBM simulation - that's where it gets real.
+
+## Resources
+- CUDA C++ Programming Guide (NVIDIA docs)
+- "Monte Carlo Methods in Financial Engineering" - Glasserman
+- Your existing physics intuition (this is just statistical mechanics)
+
+## Interview Talking Points This Gives You
+- "Achieved 500x speedup over NumPy for Monte Carlo simulation"
+- "Implemented Cholesky decomposition on GPU for correlated assets"
+- "Optimized memory access patterns reducing kernel time by 4x"
+- "Built end-to-end risk analysis pipeline processing 10M scenarios in <1 second"
